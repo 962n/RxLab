@@ -6,6 +6,7 @@ import io.reactivex.schedulers.Schedulers
 import org.junit.Test
 import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
+import java.lang.Exception
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
 
@@ -105,11 +106,11 @@ class RxKotlinPractice {
     @Test
     fun merge() {
         val observable1 = Observable
-            .interval(200,TimeUnit.MILLISECONDS)
+            .interval(200, TimeUnit.MILLISECONDS)
             .map { "observable1 $it" }
 
         val observable2 = Observable
-            .interval(200,TimeUnit.MILLISECONDS)
+            .interval(200, TimeUnit.MILLISECONDS)
             .map { "observable2 $it" }
 
         val observableByMerge = observable1.mergeWith(observable2)
@@ -224,8 +225,29 @@ class RxKotlinPractice {
     }
 
     @Test
-    fun multiFlowable() {
+    fun single() {
+        Single
+            .create<String> { emitter ->
+                println("subscribe thread =" + Thread.currentThread().name)
+                val data = listOf("Hello World", "こんにちは世界")
+                for (str in data) {
+                    if (emitter.isDisposed) {
+                        return@create
+                    }
+                    emitter.onSuccess(str)
+                }
+            }
+            .subscribeOn(Schedulers.computation())
+            .observeOn(Schedulers.io())
+            .subscribe({
+                println("onSuccess thread =" + Thread.currentThread().name)
+                println(it)
+            }, {
+                println("onError thread =" + Thread.currentThread().name)
+                it.printStackTrace()
+            })
 
+        Thread.sleep(1000)
     }
 
 
