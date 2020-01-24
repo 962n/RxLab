@@ -211,6 +211,7 @@ class RxKotlinPractice {
                     SideEffectState.MULTIPLY -> sum * data
                 }
             }
+
         val disposable = flowable.subscribe {
             println("subscribe thread =" + Thread.currentThread().name)
             println(it)
@@ -250,5 +251,32 @@ class RxKotlinPractice {
         Thread.sleep(1000)
     }
 
+    @Test
+    fun `anti pattern by onSubscribe`() {
+        Flowable
+            .just(1, 2, 3)
+            .subscribe(object : FlowableSubscriber<Int> {
+                private lateinit var subscription: Subscription
+                override fun onComplete() {
+                    println("onComplete thread =" + Thread.currentThread().name)
+                }
+                override fun onSubscribe(s: Subscription) {
+                    subscription = s
+                    println("onSubscribe thread =" + Thread.currentThread().name)
+                    println("onSubscribe start")
+                    s.request(1)
+                    println("onSubscribe end")
+                }
+                override fun onNext(t: Int?) {
+                    println("onNext thread =" + Thread.currentThread().name)
+                    println("onNext $t")
+                    subscription.request(1)
+                }
+                override fun onError(t: Throwable?) {
+                    println("onError thread =" + Thread.currentThread().name)
+                }
+            })
+
+    }
 
 }
