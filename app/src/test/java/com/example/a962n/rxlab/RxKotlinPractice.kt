@@ -6,7 +6,6 @@ import io.reactivex.schedulers.Schedulers
 import org.junit.Test
 import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
-import java.lang.Exception
 import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
 
@@ -276,7 +275,13 @@ class RxKotlinPractice {
                     println("onError thread =" + Thread.currentThread().name)
                 }
             })
-
+        Flowable
+            .just(1,2,3)
+            .subscribe(
+                { println("hoge")},
+                { println("fuga")},
+                { println("ora")}
+            )
     }
 
 }
