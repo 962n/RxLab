@@ -3,7 +3,6 @@ package com.example.a962n.rxlab
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
-import com.example.a962n.rxlab.ui.main.MainFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -23,20 +22,14 @@ class MainActivity : AppCompatActivity() {
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
-
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val position = tab?.position ?: return
                 viewPager.setCurrentItem(position, true)
             }
         })
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageScrollStateChanged(state: Int) {
-                super.onPageScrollStateChanged(state)
-            }
-
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -45,19 +38,7 @@ class MainActivity : AppCompatActivity() {
                 tabLayout.setScrollPosition(position, positionOffset, true)
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels)
             }
-
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-            }
         })
         viewPager.adapter = adapter
-
-
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.container, MainFragment.newInstance())
-//                .commitNow()
-//        }
     }
-
 }

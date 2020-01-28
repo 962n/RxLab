@@ -11,6 +11,11 @@ import com.example.a962n.rxlab.app
 
 class UserEditFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = UserEditFragment()
+    }
+
+
     private val viewModel:UserEditViewModel by viewModels {
         val scheduler = this.context?.app()?.scheduler ?: throw Exception("")
         UserEditViewModel.Factory(scheduler)

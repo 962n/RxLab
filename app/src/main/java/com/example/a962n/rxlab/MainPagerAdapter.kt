@@ -9,8 +9,8 @@ import com.example.a962n.rxlab.presentation.userList.UserListFragment
 class MainPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     private val fragments = listOf(
-        UserListFragment(),
-        UserEditFragment()
+        UserListFragment.newInstance(),
+        UserEditFragment.newInstance()
     )
     override fun getItemCount(): Int {
         return fragments.size

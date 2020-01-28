@@ -11,6 +11,10 @@ import com.example.a962n.rxlab.app
 
 class UserListFragment : Fragment() {
 
+    companion object {
+        fun newInstance() = UserListFragment()
+    }
+
     private val viewModel: UserListViewModel by viewModels {
         val scheduler = this.context?.app()?.scheduler ?: throw Exception("")
         UserListViewModel.Factory(scheduler)
