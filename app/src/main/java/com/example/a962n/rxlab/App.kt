@@ -14,6 +14,7 @@ class App : Application() {
             "sample.db"
         ).build()
     }
+    val scheduler = AppSchedulerProvider()
 
     override fun onCreate() {
         super.onCreate()
