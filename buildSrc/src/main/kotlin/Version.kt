@@ -9,6 +9,7 @@ object Version {
     }
     object AndroidX {
         const val lifecycle = "2.2.0"
+        const val room = "2.2.2"
     }
 
 }

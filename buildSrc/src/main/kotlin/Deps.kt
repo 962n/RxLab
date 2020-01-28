@@ -12,9 +12,22 @@ object Deps {
         const val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.AndroidX.lifecycle}"
         const val lifecycleLiveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.AndroidX.lifecycle}"
         const val lifecycleReactiveStreams = "androidx.lifecycle:lifecycle-reactivestreams:${Version.AndroidX.lifecycle}"
+
+        const val roomRuntime = "androidx.room:room-runtime:${Version.AndroidX.room}"
+        const val roomCompiler = "androidx.room:room-compiler:${Version.AndroidX.room}"
+        const val roomKtx = "androidx.room:room-ktx:${Version.AndroidX.room}"
+        const val roomTesting = "androidx.room:room-testing:${Version.AndroidX.room}"
+        const val roomRxjava2 = "androidx.room:room-rxjava2:${Version.AndroidX.room}"
+
+        const val viewPager2 = "androidx.viewpager2:viewpager2:1.0.0"
+
+
         const val coreTesting = "androidx.arch.core:core-testing:2.1.0"
         const val junit = "androidx.test.ext:junit:1.1.0"
         const val espressoCore = "androidx.test.espresso:espresso-core:3.2.0"
+    }
+    object Google {
+        const val material = "com.google.android.material:material:1.2.0-alpha04"
     }
 
     object RxJava2 {

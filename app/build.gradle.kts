@@ -44,6 +44,8 @@ dependencies {
     implementation(Deps.AndroidX.appCompat)
     implementation(Deps.AndroidX.coreKtx)
     implementation(Deps.AndroidX.constraintLayout)
+    implementation(Deps.AndroidX.viewPager2)
+    implementation(Deps.Google.material)
 
     implementation(Deps.AndroidX.fragmentKtx)
 
@@ -52,6 +54,15 @@ dependencies {
     implementation(Deps.AndroidX.lifecycleLiveDataKtx)
     implementation(Deps.AndroidX.lifecycleReactiveStreams)
 
+    implementation(Deps.AndroidX.roomRuntime)
+    annotationProcessor(Deps.AndroidX.roomCompiler)
+    implementation(Deps.AndroidX.roomKtx)
+    implementation(Deps.AndroidX.roomRxjava2)
+
+//    // optional - Guava support for Room, including Optional and ListenableFuture
+//    implementation "androidx.room:room-guava:$room_version"
+
+    testImplementation(Deps.AndroidX.roomTesting)
 
     testImplementation(Deps.junit)
     testImplementation(Deps.AndroidX.coreTesting)
