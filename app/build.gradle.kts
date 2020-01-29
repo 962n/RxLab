@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    kotlin("kapt")
 }
 android {
     compileSdkVersion(Version.Android.compileSdkVersion)
@@ -55,7 +56,8 @@ dependencies {
     implementation(Deps.AndroidX.lifecycleReactiveStreams)
 
     implementation(Deps.AndroidX.roomRuntime)
-    annotationProcessor(Deps.AndroidX.roomCompiler)
+
+    kapt(Deps.AndroidX.roomCompiler)
     implementation(Deps.AndroidX.roomKtx)
     implementation(Deps.AndroidX.roomRxjava2)
 

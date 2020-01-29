@@ -18,7 +18,10 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        val p = db
     }
 }
 
-fun Context.app(): App = this as App
+fun Context.app(): App {
+    return this.applicationContext as App
+}

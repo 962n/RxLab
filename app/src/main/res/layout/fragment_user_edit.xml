@@ -31,6 +31,12 @@
             android:id="@+id/buttonDeleteAll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <Button
+            android:text="check user count"
+            android:id="@+id/buttonCountCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
