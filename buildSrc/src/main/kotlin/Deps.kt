@@ -21,6 +21,9 @@ object Deps {
 
         const val viewPager2 = "androidx.viewpager2:viewpager2:1.0.0"
 
+        const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+        const val recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
+
 
         const val coreTesting = "androidx.arch.core:core-testing:2.1.0"
         const val junit = "androidx.test.ext:junit:1.1.0"

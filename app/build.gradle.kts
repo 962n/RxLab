@@ -46,6 +46,9 @@ dependencies {
     implementation(Deps.AndroidX.coreKtx)
     implementation(Deps.AndroidX.constraintLayout)
     implementation(Deps.AndroidX.viewPager2)
+    implementation(Deps.AndroidX.recyclerView)
+    implementation(Deps.AndroidX.swipeRefreshLayout)
+
     implementation(Deps.Google.material)
 
     implementation(Deps.AndroidX.fragmentKtx)

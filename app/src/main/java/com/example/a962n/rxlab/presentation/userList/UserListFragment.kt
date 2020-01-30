@@ -27,4 +27,6 @@ class UserListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_user_list, container, false)
     }
 
+
+
 }
