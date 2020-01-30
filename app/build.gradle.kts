@@ -27,6 +27,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    dataBinding {
+        isEnabled = true
+    }
     tasks {
         withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class) {
             kotlinOptions {
@@ -53,6 +56,7 @@ dependencies {
 
     implementation(Deps.AndroidX.fragmentKtx)
 
+//    kapt(Deps.AndroidX.lifecycleCompiler)
     implementation(Deps.AndroidX.lifecycleExt)
     implementation(Deps.AndroidX.lifecycleViewModelKtx)
     implementation(Deps.AndroidX.lifecycleLiveDataKtx)

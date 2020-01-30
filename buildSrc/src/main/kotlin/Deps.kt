@@ -12,6 +12,7 @@ object Deps {
         const val lifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.AndroidX.lifecycle}"
         const val lifecycleLiveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.AndroidX.lifecycle}"
         const val lifecycleReactiveStreams = "androidx.lifecycle:lifecycle-reactivestreams:${Version.AndroidX.lifecycle}"
+        const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Version.AndroidX.lifecycle}"
 
         const val roomRuntime = "androidx.room:room-runtime:${Version.AndroidX.room}"
         const val roomCompiler = "androidx.room:room-compiler:${Version.AndroidX.room}"

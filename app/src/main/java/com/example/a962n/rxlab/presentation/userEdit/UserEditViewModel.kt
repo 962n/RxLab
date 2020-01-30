@@ -51,10 +51,37 @@ class UserEditViewModel constructor(
     }
 
     fun addRandomUser10() {
+        val single = Single.create<String>
+        {
+
+            val userDao = database.userDao()
+            val users = (1..10000).map { createRandomUser() }
+            userDao.insert(users)
+            it.onSuccess("add random user 1000 success!!")
+        }
+        single
+            .subscribeOn(schedulerProvider.computation())
+            .observeOn(schedulerProvider.ui())
+            .subscribe { t ->
+                _result.value = t
+            }.addTo(compositeDisposable)
 
     }
 
     fun deleteRandomUser() {
+        val single = Single.create<String>
+        {
+
+            val userDao = database.userDao()
+            userDao.deleteAll()
+            it.onSuccess("deleteAll() success!!")
+        }
+        single
+            .subscribeOn(schedulerProvider.computation())
+            .observeOn(schedulerProvider.ui())
+            .subscribe { t ->
+                _result.value = t
+            }.addTo(compositeDisposable)
 
     }
 
